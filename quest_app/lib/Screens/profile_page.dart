@@ -136,7 +136,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: SizedBox(
               height: 50.0,
               child: RaisedButton(
-                color: Colors.blueAccent,
+                color: kMainColor2,
                 child: Text(
                   "Profile",
                   style: TextStyle(
@@ -151,7 +151,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: SizedBox(
               height: 50.0,
               child: RaisedButton(
-                color: Colors.blueAccent,
+                color: kMainColor2,
                 onPressed: () {
                   Navigator.pop(context);
                   Navigator.pushNamed(context, ResourceScreen.id);
