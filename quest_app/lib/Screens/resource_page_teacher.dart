@@ -6,14 +6,14 @@ import 'profile_page.dart';
 import 'package:quest_app/makeBox.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class ResourceScreen extends StatefulWidget {
-  static const id = "resourcePage";
+class ResourceScreen1 extends StatefulWidget {
+  static const id = "resourcePageteacher";
 
   @override
-  _ResourceScreenState createState() => _ResourceScreenState();
+  _ResourceScreen1State createState() => _ResourceScreen1State();
 }
 
-class _ResourceScreenState extends State<ResourceScreen> {
+class _ResourceScreen1State extends State<ResourceScreen1> {
   final _firestore = Firestore.instance;
 
   @override
@@ -43,7 +43,7 @@ class _ResourceScreenState extends State<ResourceScreen> {
                       MaterialPageRoute(
                           builder: (context) => YearScreen(
                                 subject: subject.data['name'],
-                                type: 0,
+                                type: 1,
                               )),
                     );
                   }));
@@ -92,12 +92,6 @@ class _ResourceScreenState extends State<ResourceScreen> {
             ),
           ),
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        elevation: 5.0,
-        child: Icon(Icons.add),
-        backgroundColor: kMainColor2,
       ),
     );
   }

@@ -4,16 +4,18 @@ import 'package:quest_app/Btn_resource.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'Resource_page.dart';
 //import 'package:fluttertoast/fluttertoast.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'resource_page_teacher.dart';
 
 class LoginScreen extends StatefulWidget {
-  static String id = 'Login';
+  static const id = 'Login';
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final textController = TextEditingController();
   final passController = TextEditingController();
+  final _firestore = Firestore.instance;
   final _auth = FirebaseAuth.instance;
   String _email;
   String _pass;
@@ -52,7 +54,6 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               TextField(
                   keyboardType: TextInputType.emailAddress,
-                  controller: textController,
                   onChanged: (value) {
                     _email = value;
                   },
@@ -78,15 +79,25 @@ class _LoginScreenState extends State<LoginScreen> {
                 btnText: 'Sign In',
                 btncolor: kMainColor,
                 onPressed: () async {
-                  textController.clear();
                   passController.clear();
                   try {
                     final user = await _auth.signInWithEmailAndPassword(
                         email: _email, password: _pass);
+                    final data = await _firestore
+                        .collection('signup')
+                        .where('email', isEqualTo: _email)
+                        .getDocuments();
+                    //print(data.documents[0].data);
                     //print(user.email);
                     if (user.isEmailVerified) {
                       if (user != null) {
-                        Navigator.pushNamed(context, ResourceScreen.id);
+                        if (data.documents[0].data['type'] == 0) {
+                          _pass = "";
+                          Navigator.pushNamed(context, ResourceScreen.id);
+                        } else if (data.documents[0].data['type'] == 1) {
+                          _pass = "";
+                          Navigator.pushNamed(context, ResourceScreen1.id);
+                        }
                       }
                     } else {
 //                      Fluttertoast.showToast(
