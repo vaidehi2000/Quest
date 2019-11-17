@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:quest_app/Screens/paper_book_video.dart';
+import 'package:quest_app/Screens/predictionpagr.dart';
 import 'package:quest_app/Screens/year_page.dart';
 import 'package:quest_app/constants.dart';
 import 'profile_page.dart';
@@ -41,7 +43,7 @@ class _ResourceScreenState extends State<ResourceScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => YearScreen(
+                          builder: (context) => PBVScreen(
                                 subject: subject.data['name'],
                                 type: 0,
                               )),
@@ -92,12 +94,6 @@ class _ResourceScreenState extends State<ResourceScreen> {
             ),
           ),
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        elevation: 5.0,
-        child: Icon(Icons.add),
-        backgroundColor: kMainColor2,
       ),
     );
   }

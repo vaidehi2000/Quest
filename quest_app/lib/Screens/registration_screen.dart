@@ -228,27 +228,27 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             'email': _email,
             'type': _currValue
           });
+        }
+      }
 
-          try {
-            final newUser = await _auth.createUserWithEmailAndPassword(
-                email: _email, password: _pass);
-            await newUser.sendEmailVerification();
+      try {
+        final newUser = await _auth.createUserWithEmailAndPassword(
+            email: _email, password: _pass);
+        await newUser.sendEmailVerification();
 //        Fluttertoast.showToast(
 //          msg: "Complete the verification and sign In.",
 //          toastLength: Toast.LENGTH_SHORT,
 //        );
-            if (newUser != null) {
-              Navigator.pop(context);
-              Navigator.pushNamed(context, VerifyScreen.id);
-            }
-          } catch (e) {
-            print(e);
+        if (newUser != null) {
+          Navigator.pop(context);
+          Navigator.pushNamed(context, VerifyScreen.id);
+        }
+      } catch (e) {
+        print(e);
 //        Fluttertoast.showToast(
 //          msg: "The email address is already in use by another account.",
 //          toastLength: Toast.LENGTH_SHORT,
 //        );
-          }
-        }
       }
     } else {
 //    If all data are not valid then start auto validation.
