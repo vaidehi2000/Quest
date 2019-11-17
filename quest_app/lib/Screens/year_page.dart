@@ -114,7 +114,7 @@ class YearScreen extends StatelessWidget {
                     ),
                   ),
                 );
-              } else if (type == 1) {
+              } else if (type == 1 || type == 2) {
                 Navigator.push(
                   context,
                   MaterialPageRoute(

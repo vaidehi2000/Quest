@@ -1,20 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:quest_app/Screens/year_page.dart';
+import 'package:quest_app/Screens/paper_book_video.dart';
 import 'package:quest_app/constants.dart';
 import 'profile_page.dart';
 import 'package:quest_app/makeBox.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'paper_book_video.dart';
 
-class ResourceScreen1 extends StatefulWidget {
-  static const id = "resourcePageteacher";
+class ResourceScreen2 extends StatefulWidget {
+  static const id = "resourcePage_admin";
 
   @override
-  _ResourceScreen1State createState() => _ResourceScreen1State();
+  _ResourceScreen2State createState() => _ResourceScreen2State();
 }
 
-class _ResourceScreen1State extends State<ResourceScreen1> {
+class _ResourceScreen2State extends State<ResourceScreen2> {
   final _firestore = Firestore.instance;
 
   @override
@@ -44,10 +43,11 @@ class _ResourceScreen1State extends State<ResourceScreen1> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => PBVScreen(
-                                subject: subject.data['name'],
-                                type: 1,
-                              )),
+                        builder: (context) => PBVScreen(
+                          subject: subject.data['name'],
+                          type: 2,
+                        ),
+                      ),
                     );
                   },
                 ),

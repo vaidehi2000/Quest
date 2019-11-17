@@ -16,7 +16,12 @@ class _SyllubusState extends State<Syllubus> {
   @override
   void initState() {
     super.initState();
-    if (widget.subject.compareTo('Database Management') == 0) subject = 'dbms';
+    if (widget.subject.compareTo('Database Management') == 0)
+      subject = 'dbms';
+    else if (widget.subject.compareTo('Linear Algebra') == 0)
+      subject = 'la';
+    else if (widget.subject.compareTo('Discrete Mathematics') == 0)
+      subject = 'dm';
     print(subject);
   }
 

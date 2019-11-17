@@ -4,9 +4,12 @@ import 'package:quest_app/Screens/year_page.dart';
 import 'package:quest_app/constants.dart';
 import 'package:quest_app/makeBox.dart';
 import 'predictionpagr.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class PBVScreen extends StatelessWidget {
   static const id = 'paper_book_video';
+  final _firestore = Firestore.instance;
   PBVScreen({this.subject, this.type});
   String subject;
   int type;
@@ -24,6 +27,7 @@ class PBVScreen extends StatelessWidget {
               title: "Paper",
               icon: Icons.file_download,
               onTap: () {
+                print(type);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -35,8 +39,38 @@ class PBVScreen extends StatelessWidget {
                 );
               },
             ),
-            MakeBox(title: "Books", icon: Icons.book, onTap: () {}),
-            MakeBox(title: "Videos", icon: Icons.videocam, onTap: () {}),
+            MakeBox(
+              title: "Books",
+              icon: Icons.book,
+              onTap: () async {
+                final data = await _firestore
+                    .collection('book')
+                    .where('subject', isEqualTo: subject)
+                    .getDocuments();
+                var url = data.documents[0].data['link'];
+                if (await canLaunch(url)) {
+                  await launch(url);
+                } else {
+                  throw 'Could not launch $url';
+                }
+              },
+            ),
+            MakeBox(
+              title: "Videos",
+              icon: Icons.videocam,
+              onTap: () async {
+                final data = await _firestore
+                    .collection('video')
+                    .where('subject', isEqualTo: subject)
+                    .getDocuments();
+                var url = data.documents[0].data['link'];
+                if (await canLaunch(url)) {
+                  await launch(url);
+                } else {
+                  throw 'Could not launch $url';
+                }
+              },
+            ),
             MakeBox(
                 title: "Syllabus",
                 icon: Icons.insert_drive_file,
@@ -48,8 +82,9 @@ class PBVScreen extends StatelessWidget {
                     ),
                   );
                 }),
-            type == 0
-                ? MakeBox(
+            type == 1
+                ? Container()
+                : MakeBox(
                     title: "Predict Paper",
                     icon: Icons.graphic_eq,
                     onTap: () {
@@ -61,8 +96,8 @@ class PBVScreen extends StatelessWidget {
                           ),
                         ),
                       );
-                    })
-                : Container(),
+                    },
+                  ),
           ],
         ),
       ),
