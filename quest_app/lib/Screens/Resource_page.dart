@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:quest_app/Screens/paper_book_video.dart';
-import 'package:quest_app/Screens/predictionpagr.dart';
-import 'package:quest_app/Screens/year_page.dart';
 import 'package:quest_app/constants.dart';
 import 'profile_page.dart';
 import 'package:quest_app/makeBox.dart';
@@ -24,6 +22,7 @@ class _ResourceScreenState extends State<ResourceScreen> {
       appBar: AppBar(
         title: Text("Resources"),
         backgroundColor: kMainColor,
+        leading: Container(),
       ),
       body: SingleChildScrollView(
         child: StreamBuilder(

@@ -16,6 +16,7 @@ import 'Screens/predictionpagr.dart';
 import 'Screens/paper_book_video.dart';
 import 'Screens/syllubuspage.dart';
 import 'Screens/predictionanspage.dart';
+import 'Screens/resource_page_admin.dart';
 
 void main() => runApp(MyApp());
 
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       home: WelcomeScreen(),
       routes: {
+        ResourceScreen2.id: (context) => ResourceScreen2(),
         FinalAnswer.id: (context) => FinalAnswer(),
         Syllubus.id: (context) => Syllubus(),
         PredictionPage.id: (context) => PredictionPage(),

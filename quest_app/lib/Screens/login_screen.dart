@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:quest_app/Btn_resource.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'Resource_page.dart';
+import 'resource_page_admin.dart';
 //import 'package:fluttertoast/fluttertoast.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'resource_page_teacher.dart';
@@ -97,6 +98,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         } else if (data.documents[0].data['type'] == 1) {
                           _pass = "";
                           Navigator.pushNamed(context, ResourceScreen1.id);
+                        } else if (data.documents[0].data['type'] == 2) {
+                          _pass = "";
+                          Navigator.pushNamed(context, ResourceScreen2.id);
                         }
                       }
                     } else {
