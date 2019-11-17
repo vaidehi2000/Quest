@@ -12,6 +12,10 @@ import 'Screens/Resource_page.dart';
 import 'Screens/resource_page_teacher.dart';
 import 'Screens/paper_page_teacher.dart';
 import 'Screens/upload_paper.dart';
+import 'Screens/predictionpagr.dart';
+import 'Screens/paper_book_video.dart';
+import 'Screens/syllubuspage.dart';
+import 'Screens/predictionanspage.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,6 +27,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       home: WelcomeScreen(),
       routes: {
+        FinalAnswer.id: (context) => FinalAnswer(),
+        Syllubus.id: (context) => Syllubus(),
+        PredictionPage.id: (context) => PredictionPage(),
         WelcomeScreen.id: (context) => WelcomeScreen(),
         LoginScreen.id: (context) => LoginScreen(),
         RegistrationScreen.id: (context) => RegistrationScreen(),
@@ -34,6 +41,7 @@ class MyApp extends StatelessWidget {
         ResourceScreen1.id: (context) => ResourceScreen1(),
         PaperScreen1.id: (context) => PaperScreen1(),
         UploadScreen.id: (context) => UploadScreen(),
+        PBVScreen.id: (context) => PBVScreen(),
       },
     );
   }

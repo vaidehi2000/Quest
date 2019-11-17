@@ -5,6 +5,7 @@ import 'package:quest_app/constants.dart';
 import 'profile_page.dart';
 import 'package:quest_app/makeBox.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'paper_book_video.dart';
 
 class ResourceScreen1 extends StatefulWidget {
   static const id = "resourcePageteacher";
@@ -41,7 +42,7 @@ class _ResourceScreen1State extends State<ResourceScreen1> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => YearScreen(
+                          builder: (context) => PBVScreen(
                                 subject: subject.data['name'],
                                 type: 1,
                               )),
