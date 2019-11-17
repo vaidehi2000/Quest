@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:quest_app/Btn_resource.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'Resource_page.dart';
+import 'registration_screen.dart';
 import 'resource_page_admin.dart';
 //import 'package:fluttertoast/fluttertoast.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -119,7 +120,22 @@ class _LoginScreenState extends State<LoginScreen> {
                   }
                 },
               ),
-            ],
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.pushNamed(context, RegistrationScreen.id);
+                  },
+                child: Text(
+                  'Create New Account?',
+                  style: TextStyle(fontSize: 15.0),
+                ),
+              ),
+              ],
+          ),
+    ],
           ),
         ),
       ),
