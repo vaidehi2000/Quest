@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quest_app/Screens/paper_page.dart';
-import 'package:quest_app/constants.dart';
-import 'package:quest_app/makeBox.dart';
+import 'package:quest/Screens/paper_page.dart';
+import 'package:quest/constants.dart';
+import 'package:quest/makeBox.dart';
 import 'paper_page_teacher.dart';
 
 class YearScreen extends StatelessWidget {
@@ -33,7 +33,7 @@ class YearScreen extends StatelessWidget {
                     ),
                   ),
                 );
-              } else if (type == 1) {
+              } else if (type == 1 || type == 2) {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -60,7 +60,7 @@ class YearScreen extends StatelessWidget {
                     ),
                   ),
                 );
-              } else if (type == 1) {
+              } else if (type == 1 || type == 2) {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -87,7 +87,7 @@ class YearScreen extends StatelessWidget {
                     ),
                   ),
                 );
-              } else if (type == 1) {
+              } else if (type == 1 || type == 2) {
                 Navigator.push(
                   context,
                   MaterialPageRoute(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:quest_app/Screens/Resource_page.dart';
-import 'package:quest_app/Screens/login_screen.dart';
-import 'package:quest_app/constants.dart';
+import 'package:quest/Screens/Resource_page.dart';
+import 'package:quest/Screens/login_screen.dart';
+import 'package:quest/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 

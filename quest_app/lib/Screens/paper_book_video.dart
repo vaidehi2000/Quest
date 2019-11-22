@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:quest_app/Screens/syllubuspage.dart';
-import 'package:quest_app/Screens/year_page.dart';
-import 'package:quest_app/constants.dart';
-import 'package:quest_app/makeBox.dart';
+import 'package:quest/Screens/syllubuspage.dart';
+import 'package:quest/Screens/year_page.dart';
+import 'package:quest/constants.dart';
+import 'package:quest/makeBox.dart';
 import 'predictionpagr.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -54,6 +54,11 @@ class PBVScreen extends StatelessWidget {
                   throw 'Could not launch $url';
                 }
               },
+            ),
+            MakeBox(
+              title: "Assignments",
+              icon: Icons.subject,
+              onTap: () {},
             ),
             MakeBox(
               title: "Videos",

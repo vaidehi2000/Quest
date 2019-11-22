@@ -1,6 +1,6 @@
-# quest_app
+# quest
 
-New Project
+A new Flutter application.
 
 ## Getting Started
 

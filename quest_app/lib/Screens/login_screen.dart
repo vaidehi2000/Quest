@@ -1,6 +1,6 @@
-import 'package:quest_app/constants.dart';
+import 'package:quest/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:quest_app/Btn_resource.dart';
+import 'package:quest/Btn_resource.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'Resource_page.dart';
 import 'resource_page_admin.dart';

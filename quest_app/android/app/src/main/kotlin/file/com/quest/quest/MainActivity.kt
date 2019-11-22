@@ -1,4 +1,4 @@
-package com.quest.quest_app
+package file.com.quest.quest
 
 import android.os.Bundle
 
