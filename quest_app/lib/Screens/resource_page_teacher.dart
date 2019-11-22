@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:quest_app/Screens/year_page.dart';
-import 'package:quest_app/constants.dart';
+import 'package:quest/Screens/year_page.dart';
+import 'package:quest/constants.dart';
 import 'profile_page.dart';
-import 'package:quest_app/makeBox.dart';
+import 'package:quest/makeBox.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'paper_book_video.dart';
 

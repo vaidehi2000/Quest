@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:quest_app/constants.dart';
+import 'package:quest/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class UploadScreen extends StatefulWidget {
@@ -24,16 +24,17 @@ class _UploadScreenState extends State<UploadScreen> {
   void getPdfAndUpload() async {
     try {
       var rng = new Random();
-      String randomName="";
+      String randomName = "";
       for (var i = 0; i < 20; i++) {
         print(rng.nextInt(100));
         randomName += rng.nextInt(100).toString();
       }
-      File file = await FilePicker.getFile(type: FileType.CUSTOM, fileExtension: 'pdf');
+      File file =
+          await FilePicker.getFile(type: FileType.CUSTOM, fileExtension: 'pdf');
       String fileName = '${randomName}.pdf';
       print(fileName);
       print('${file.readAsBytesSync()}');
-      
+
       //savePdf(file.readAsBytesSync(), fileName);
     } catch (e) {
       print(e);

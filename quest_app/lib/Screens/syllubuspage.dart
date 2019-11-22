@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quest_app/constants.dart';
+import 'package:quest/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Syllubus extends StatefulWidget {
@@ -45,8 +45,13 @@ class _SyllubusState extends State<Syllubus> {
             for (var subject in subjects) {
               //print(subject.data['topic']);
               names.add(
-                Text(
-                  "$i" + ")  " + subject.data['topic'],
+                Card(
+                  elevation: 3.0,
+                  child: Text(
+                    "$i" + ")  " + subject.data['topic'],
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 17.0),
+                  ),
                 ),
               );
               i++;

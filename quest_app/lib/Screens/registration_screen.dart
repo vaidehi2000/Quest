@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:quest_app/Screens/VerificationScreen.dart';
-import 'package:quest_app/constants.dart';
+import 'package:quest/Screens/VerificationScreen.dart';
+import 'package:quest/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:quest_app/Btn_resource.dart';
+import 'package:quest/Btn_resource.dart';
 import 'login_screen.dart';
 import 'package:string_validator/string_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -65,7 +65,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 TextFormField(
                   keyboardType: TextInputType.text,
                   decoration: kTextFieldDecoration.copyWith(
-                    hintText: 'Name',
+                    hintText: 'Full Name',
                   ),
                   validator: (String arg) {
                     if (arg.length < 3)
@@ -217,18 +217,20 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     if (_formKey.currentState.validate()) {
 //    If all data are correct then save data to out variables
       _formKey.currentState.save();
-      final data = await _firestore.collection('signup').getDocuments();
-      for (var d in data.documents) {
-        if (_email.compareTo(d.data['email']) == 0) {
-          print("Email Already exists");
-        } else {
-          _firestore.collection('signup').add({
-            'name': _name,
-            'pass': _pass,
-            'email': _email,
-            'type': _currValue
-          });
-        }
+      final data = await _firestore
+          .collection('signup')
+          .where('email', isEqualTo: _email)
+          .getDocuments();
+
+      if (!data.documents.isEmpty) {
+        print("Email Already exists");
+      } else {
+        _firestore.collection('signup').add({
+          'name': _name,
+          'pass': _pass,
+          'email': _email,
+          'type': _currValue
+        });
       }
 
       try {

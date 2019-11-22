@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:quest_app/Btn_resource.dart';
+import 'package:quest/Btn_resource.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:quest_app/constants.dart';
+import 'package:quest/constants.dart';
 import 'login_screen.dart';
 import 'registration_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
-  static String id = "Welcome";
+  static const id = "Welcome";
   @override
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
@@ -19,7 +19,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         title: Center(
           child: Text(
             "Welcome",
-            style: TextStyle(),
           ),
         ),
         backgroundColor: kMainColor,

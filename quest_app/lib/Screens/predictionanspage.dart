@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:quest_app/constants.dart';
+import 'package:quest/constants.dart';
 import 'package:pie_chart/pie_chart.dart';
 
 class FinalAnswer extends StatelessWidget {

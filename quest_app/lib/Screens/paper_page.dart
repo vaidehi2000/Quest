@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quest_app/constants.dart';
-import 'package:quest_app/makeBox.dart';
+import 'package:quest/constants.dart';
+import 'package:quest/makeBox.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -76,6 +76,69 @@ class _PaperScreenState extends State<PaperScreen> {
                   .where('subject', isEqualTo: widget.subject)
                   .where('year', isEqualTo: widget.year)
                   .where('sem', isEqualTo: '3')
+                  .getDocuments();
+              print(info.documents[0].data);
+              var url = info.documents[0].data['paper'];
+              if (await canLaunch(url)) {
+                await launch(url);
+              } else {
+                throw 'Could not launch $url';
+              }
+            },
+          ),
+          MakeBox(
+            title: 'In-Sem1 Solution',
+            icon: Icons.file_download,
+            onTap: () async {
+              print(widget.subject);
+              print(widget.year);
+              final info = await _firestore
+                  .collection('papers')
+                  .where('subject', isEqualTo: widget.subject)
+                  .where('year', isEqualTo: widget.year)
+                  .where('sem', isEqualTo: '4')
+                  .getDocuments();
+              print(info.documents[0].data);
+              var url = info.documents[0].data['paper'];
+              if (await canLaunch(url)) {
+                await launch(url);
+              } else {
+                throw 'Could not launch $url';
+              }
+            },
+          ),
+          MakeBox(
+            title: 'In-Sem2 Solution',
+            icon: Icons.file_download,
+            onTap: () async {
+              print(widget.subject);
+              print(widget.year);
+              final info = await _firestore
+                  .collection('papers')
+                  .where('subject', isEqualTo: widget.subject)
+                  .where('year', isEqualTo: widget.year)
+                  .where('sem', isEqualTo: '5')
+                  .getDocuments();
+              print(info.documents[0].data);
+              var url = info.documents[0].data['paper'];
+              if (await canLaunch(url)) {
+                await launch(url);
+              } else {
+                throw 'Could not launch $url';
+              }
+            },
+          ),
+          MakeBox(
+            title: 'End-Sem Solution',
+            icon: Icons.file_download,
+            onTap: () async {
+              print(widget.subject);
+              print(widget.year);
+              final info = await _firestore
+                  .collection('papers')
+                  .where('subject', isEqualTo: widget.subject)
+                  .where('year', isEqualTo: widget.year)
+                  .where('sem', isEqualTo: '6')
                   .getDocuments();
               print(info.documents[0].data);
               var url = info.documents[0].data['paper'];

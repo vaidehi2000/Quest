@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:quest_app/constants.dart';
+import 'package:quest/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'predictionanspage.dart';
 
@@ -42,27 +42,43 @@ class _PredictionPageState extends State<PredictionPage> {
         title: Text('Predict Paper'),
         backgroundColor: kMainColor,
       ),
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: isbutton
-            ? RaisedButton(
-                child: Text('Start'),
-                onPressed: () async {
-                  final data =
-                      await _firestore.collection(subject).getDocuments();
-                  final predict =
-                      await _firestore.collection(presubject).getDocuments();
-                  for (var pre in predict.documents) {
-                    inputs.add(pre.data['topic']);
-                  }
-                  for (var d in data.documents) {
-                    bundle[d.data['topic']] = false;
-                    topic.add(d.data['topic']);
-                  }
-                  //print(bundle);
-                  setState(() {
-                    isbutton = false;
-                  });
-                },
+            ? Center(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 250.0),
+                  child: RaisedButton(
+                    padding: EdgeInsets.all(15.0),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(
+                          (18.0),
+                        ),
+                        side: BorderSide(color: Colors.black)),
+                    child: Text(
+                      'Start Prediction',
+                      style: TextStyle(fontSize: 25.0),
+                    ),
+                    onPressed: () async {
+                      final data =
+                          await _firestore.collection(subject).getDocuments();
+                      final predict = await _firestore
+                          .collection(presubject)
+                          .getDocuments();
+                      for (var pre in predict.documents) {
+                        inputs.add(pre.data['topic']);
+                      }
+                      for (var d in data.documents) {
+                        bundle[d.data['topic']] = false;
+                        topic.add(d.data['topic']);
+                      }
+                      //print(bundle);
+                      setState(() {
+                        isbutton = false;
+                      });
+                    },
+                  ),
+                ),
               )
             : Column(
                 children: <Widget>[
